@@ -116,7 +116,7 @@ const GodOfWar =  () => {
       gsap.timeline().add(animate(e1), "0").add(realAnimate(e2), "-=1.2");
   
     return (
-      <div className="App">
+      <div className="App" style={{fontFamily: "Norse"}}>
         <div className="cont">
           <div ref={norseText}>
             <span className="animate title">ᚺ</span>
