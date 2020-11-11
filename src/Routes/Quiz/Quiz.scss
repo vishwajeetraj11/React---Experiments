@@ -1,0 +1,49 @@
+.quiz {
+
+}
+
+button {
+    border: 0;
+    outline: 0;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.question {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.traversal-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    button {
+        padding: 0.8rem 1rem;
+        border-radius: 10px;
+        width: 43%;
+    }
+}
+
+.msg {
+    font-size: 1.7rem;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-radius: 6px;
+}
+
+.correct {
+    background-color: rgb(117, 235, 117);
+    color: #fff;
+}
+.wrong {
+    background-color: rgb(247, 42, 27);
+    color: #fff;
+}
