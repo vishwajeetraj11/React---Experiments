@@ -3,11 +3,4 @@
   2. Three.js Image Distort Hover Effect (Route: /)
   3. Quiz Component (Route: /quiz)
 
-//## Available Scripts
-
-//### `yarn start`
-
-
-
-//### `yarn test`
 
