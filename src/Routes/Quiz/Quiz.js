@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import "./Quiz.scss";
+import Quizes from "./QuizData"
 
 const responsesDefaultState = [];
 
@@ -19,7 +20,10 @@ const Quiz = () => {
     const [current, setCurrent] = useState(0);
     // console.log(current, max)
     const [quiz, setQuiz] = useState(true);
+
+    // eslint-disable-next-line
     const [isDisabled, setIsDisabled] = useState(false);
+
     const [isNextDisabled, setIsNextDisabled] = useState(false);
     const [isPrevDisabled, setIsPrevDisabled] = useState(false);
     const [correct, setCorrect] = useState();
@@ -79,6 +83,12 @@ const Quiz = () => {
         const iresponse = {
             id: Quizes[current].id,
             question: Quizes[current].question,
+            answers: [
+                { value: Quizes[current].answers[0].value, isCorrect: Quizes[current].answers[0].isCorrect },
+                { value: Quizes[current].answers[1].value, isCorrect: Quizes[current].answers[1].isCorrect },
+                { value: Quizes[current].answers[2].value, isCorrect: Quizes[current].answers[2].isCorrect },
+                { value: Quizes[current].answers[3].value, isCorrect: Quizes[current].answers[3].isCorrect },
+            ],
             userResponse: e.target.innerHTML,
             DidUserMarkCorrect: undefined
         }
@@ -95,18 +105,17 @@ const Quiz = () => {
             setresponseTaken(true)
             iresponse.DidUserMarkCorrect = true
             dispatch({type: 'ADD', response: iresponse})
-            if(current === max) {setQuiz(false)}
-            // setResponses(["a","c"])
-            calcScore()
         } else {
             iresponse.DidUserMarkCorrect = false
             dispatch({type: 'ADD', response: iresponse})
-            // setResponses(0)
-            calcScore(score)
             setresponseTaken(true)
-
         }
     };
+
+    const submit = () => {
+        setQuiz(false)
+        calcScore();
+    }
 
     useEffect(() => {
         if (current === 0) {
@@ -148,50 +157,37 @@ const Quiz = () => {
                     NEXT
         </button>
             </div>
-            {/* <button onClick={remove}>
-                 Bruh!
-        </button> */}
             {correct === true && <p className="msg correct">Correct Answer</p>}
             {responseTaken === true && <p className="msg taken">Response Recorded</p>}
             {correct === false && <p className="msg wrong">Wrong Answer</p>}
+            {current === max && <button onClick={submit} className="btn btn-submit">Submit</button>}
         </div>)}
-            {quiz === false && <p className="msg score">Total Score: {score}</p>}
+            {quiz === false && <p className="msg score">Total Score : {score}</p>}
+            {quiz === false && <div className="quiz">
+            {responses.map((quiz, index) => (
+                <div className="marg-top" key={index}>
+                <h3 className="question">{quiz.question}</h3>
+                <div className="answers">
+                    {quiz.answers.map((answer, index) => (
+                        <>
+                        <button
+                            key={index}
+                            className={`btn btn-answer ${answer.isCorrect && "answer-correct"} ${answer.value === quiz.userResponse && "wrong"}`}
+                            value={answer.value}
+                            disabled={isDisabled}
+                        >
+                            {answer.value}
+                        </button>
+                    </>
+                    ))}
+                </div>
+                </div>
+            ))}
+                </div>}
     </>
     );
 };
 
-const Quizes = [
-    {
-        id:1,
-        question: "React is mainly used for building ___.",
-        answers: [
-            { value: "Database", isCorrect: false },
-            { value: "User interface", isCorrect: true },
-            { value: "Connectivity", isCorrect: false },
-            { value: "Design Platform", isCorrect: false },
-        ],
-    },
-    {
-        id:2,
-        question: "Which method is not part of ReactDOM?",
-        answers: [
-            { value: "ReactDOM.destroy()", isCorrect: true },
-            { value: "ReactDOM.hydrate()", isCorrect: false },
-            { value: "ReactDOM.createPortal()", isCorrect: false },
-            { value: "ReactDOM.findDOMNode()", isCorrect: false },
-        ],
-    },
 
-    {
-        id:3,
-        question: "The lifecycle methods are mainly used for ___.",
-        answers: [
-            { value: "keeping track of event history", isCorrect: false },
-            { value: "enhancing components", isCorrect: false },
-            { value: "freeing up resources", isCorrect: true },
-            { value: "none of the above", isCorrect: false },
-        ],
-    },
-];
 
 export default Quiz;

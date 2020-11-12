@@ -1,5 +1,16 @@
 .quiz {
+    
+    width: 40%;
+    margin: 0 30%;
+    @media only screen and (max-width: 60rem) {
+        width: 100%;
+        height: auto;
+        margin: 0;
+      }
+}
 
+.marg-top {
+    margin-top: 5rem;
 }
 
 button {
@@ -50,5 +61,14 @@ button {
 
 .taken {
     background-color: rgb(166, 66, 238);
+    color: #fff;
+}
+
+.btn-submit {
+    margin-top: 2rem;
+}
+
+.answer-correct {
+    background-color: rgb(117, 235, 117);
     color: #fff;
 }
