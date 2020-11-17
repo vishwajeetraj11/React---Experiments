@@ -1,74 +1,115 @@
-.quiz {
-    
-    width: 40%;
-    margin: 0 30%;
-    @media only screen and (max-width: 60rem) {
-        width: 100%;
-        height: auto;
-        margin: 0;
-      }
-}
+.quiz-container {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    width: 80%;
+    margin: 0 10%;
 
-.marg-top {
-    margin-top: 5rem;
+  @media only screen and (max-width: 60rem) {
+    padding-top: 8rem;
+  }
 }
 
 button {
-    border: 0;
-    outline: 0;
+    font-family: 'Lato';
+}
+
+.quiz {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 2rem;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.07);
+}
+.question {
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 2rem;
+  @media only screen and (max-width: 60rem) {
+    font-size: 1.5rem;
+  }
+}
+.marg-top {
+  margin-top: 5rem;
+}
+
+button {
+  border: 0;
+  outline: 0;
 }
 
 .btn {
-    padding: 1rem 2rem;
-    width: 100%;
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    border-radius: 10px;
+  padding: 1rem 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  border-radius: 4px;
 }
 
-.question {
-    margin-bottom: 2rem;
-    font-size: 2rem;
+.btn-answer {
+  background-color: #eee;
+  color: #000;
+  text-align: left;
+  border-radius: 4px;
 }
 
 .traversal-buttons {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  @media only screen and (max-width: 60rem) {
     justify-content: space-between;
-
-    button {
-        padding: 0.8rem 1rem;
-        border-radius: 10px;
-        width: 43%;
+}
+  
+  button {
+    padding: 1rem 1.2rem;
+    width: 30rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+    @media only screen and (max-width: 60rem) {
+      width: 43%;    
     }
+  }
 }
 
 .msg {
-    font-size: 1.7rem;
-    margin-top: 2rem;
-    padding: 1rem 0;
-    border-radius: 6px;
+  font-size: 1.7rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-radius: 6px;
 }
 
 .correct {
-    background-color: rgb(117, 235, 117);
-    color: #fff;
+  background-color: rgb(117, 235, 117);
+  color: #fff;
 }
 .wrong {
-    background-color: rgb(247, 42, 27);
-    color: #fff;
+  background-color: rgb(247, 42, 27);
+  color: #fff;
 }
 
 .taken {
-    background-color: rgb(166, 66, 238);
-    color: #fff;
+  background-color: #25c685;
+  color: #fff;
+  transition: all 0.2s;
+  font-size: 2rem;
+  @media only screen and (max-width: 60rem) {
+    font-size: 1.5rem;
+  }
 }
 
-.btn-submit {
-    margin-top: 2rem;
+#submit {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  color: #fff;
+  width: 43%;
+  background-color: #3FD79A;
+  @media only screen and (max-width: 60rem) {
+    width: 100%;    
+    }
 }
 
 .answer-correct {
-    background-color: rgb(117, 235, 117);
-    color: #fff;
+  background-color: rgb(117, 235, 117);
+  color: #fff;
 }
