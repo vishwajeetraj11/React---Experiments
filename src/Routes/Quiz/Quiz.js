@@ -168,7 +168,7 @@ const Quiz = () => {
             {quiz === false && <div className="quiz">
             {responses.map((quiz, index) => (
                 <div className="marg-top" key={index}>
-                <h3 className="question">{quiz.question}</h3>
+                <h3 className="question">{current+1}. {quiz.question}</h3>
                 <div className="answers">
                     {quiz.answers.map((answer, index) => (
                         <>
